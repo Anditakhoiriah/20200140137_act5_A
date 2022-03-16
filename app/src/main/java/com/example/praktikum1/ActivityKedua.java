@@ -1,12 +1,36 @@
 package com.example.praktikum1;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 
 public class ActivityKedua extends AppCompatActivity {
     //Mendeklarasikan variabel dengan tipe data Text View
     TextView txEmail, txPassword;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //membuat kondisi jika yang dipilih adalah id mnDaftar
+        if (item.getItemId() == R.id.mnDaftar)
+        {
+            //methode untuk memangil activity "DaftarActivity"
+            Intent i = new Intent(getApplicationContext(), pendaftaran.class);
+            startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Methode untuk menampilkan menu.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
